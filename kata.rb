@@ -1,3 +1,3 @@
-def word_wrap(string, max_characters)
+def word_wrap(string, line_length)
   string
 end
