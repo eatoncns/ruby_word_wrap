@@ -8,12 +8,12 @@ def word_wrap(string, line_length)
   if string.length <= line_length
     return string
   end
-  space = string.rindex(" ", line_length)
+  last_space = string.rindex(" ", line_length)
   split_offset = 0
-  if space.nil?
+  if last_space.nil?
     split_line(string, line_length, split_offset, line_length)
   else
     split_offset = 1
-    split_line(string, space, split_offset, line_length)
+    split_line(string, last_space, split_offset, line_length)
   end
 end
