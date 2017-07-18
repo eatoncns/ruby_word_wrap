@@ -16,5 +16,15 @@ describe "word_wrap" do
     it "should split word when longer than line length" do
       expect(word_wrap("test", 2)).to eq "te\nst"
     end
+
+    it "should perform mulitple splits when necessary" do
+      expect(word_wrap("tested", 2)).to eq "te\nst\ned"
+    end
+  end
+
+  context "given multiple word input" do
+    it "should split on word boundary" do
+      expect(word_wrap("test test", 5)).to eq "test\ntest"
+    end
   end
 end
