@@ -34,5 +34,9 @@ describe "word_wrap" do
     it "should split after word boundary" do
       expect(word_wrap("test test", 4)).to eq "test\ntest"
     end
+
+    it "should handle multiple words per line" do
+      expect(word_wrap("a lot of words for a single line", 10)).to eq "a lot of\nwords for\na single\nline"
+    end
   end
 end
