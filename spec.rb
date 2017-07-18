@@ -12,5 +12,9 @@ describe "word_wrap" do
     it "should return word when smaller than line length" do
       expect(word_wrap("test", 5)).to eq "test"
     end
+
+    it "should split word when longer than line length" do
+      expect(word_wrap("test", 2)).to eq "te\nst"
+    end
   end
 end
