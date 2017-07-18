@@ -26,5 +26,13 @@ describe "word_wrap" do
     it "should split on word boundary" do
       expect(word_wrap("test test", 5)).to eq "test\ntest"
     end
+
+    it "avoid splitting words where possible" do
+      expect(word_wrap("test test", 6)).to eq "test\ntest"
+    end
+
+    it "should split after word boundary" do
+      expect(word_wrap("test test", 4)).to eq "test\ntest"
+    end
   end
 end
