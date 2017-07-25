@@ -1,9 +1,9 @@
-StringBegin = 0
-StringEnd = -1
-OffsetByOne = 1
+STRING_BEGIN = 0
+STRING_END = -1
+OFFSET_BY_ONE = 1
 
 def split_line(string, split_position)
-  string[StringBegin..split_position-OffsetByOne] << "\n"
+  string[STRING_BEGIN..split_position-OFFSET_BY_ONE] << "\n"
 end
 
 def word_wrap(string, line_length)
@@ -12,8 +12,10 @@ def word_wrap(string, line_length)
   end
   last_space_in_line = string.rindex(" ", line_length)
   if last_space_in_line.nil?
-    split_line(string, line_length) << word_wrap(string[line_length..StringEnd], line_length)
+    split_line(string, line_length) <<
+      word_wrap(string[line_length..STRING_END], line_length)
   else
-    split_line(string, last_space_in_line) << word_wrap(string[last_space_in_line + OffsetByOne..StringEnd], line_length)
+    split_line(string, last_space_in_line) <<
+      word_wrap(string[last_space_in_line + OFFSET_BY_ONE..STRING_END], line_length)
   end
 end
